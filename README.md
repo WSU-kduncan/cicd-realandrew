@@ -16,3 +16,9 @@ To setup and run the project follow these steps:
   4. With the project running you can go to [http://localhost:80](http://localhost:80) or [http://127.0.0.1:80](http://127.0.0.1:80) in your browser to view the website.
 
 ## Part 2
+
+1. Create a Docker Hub account (if you don't already have one) at [https://hub.docker.com](https://hub.docker.com).
+2. Create a new repository by clicking the big blue "Create Repository" in the top right of the screen. Give it an appropriate name, set it to public, and click the blue "create" button.
+3. Login to Docker Hub in your CLI by typing `docker login` and entering your credentials (or `docker login --username <username>` if you need to login to a different account).
+4. On your repository, set 2 Github secrets, set `DOCKER_USERNAME` equal to your Docker Hub username and set `DOCKER_PASSWORD` equal to your Docker Hub password.
+5. In the `.github\workflows\docker-push.yml` file set `DOCKER_HUB_REPO` under `env` to the name of your repo on Docker Hub.
