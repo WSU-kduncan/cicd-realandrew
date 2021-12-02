@@ -21,4 +21,4 @@ To setup and run the project follow these steps:
 2. Create a new repository by clicking the big blue "Create Repository" in the top right of the screen. Give it an appropriate name, set it to public, and click the blue "create" button.
 3. Login to Docker Hub in your CLI by typing `docker login` and entering your credentials (or `docker login --username <username>` if you need to login to a different account).
 4. On your repository, set 2 Github secrets, set `DOCKER_USERNAME` equal to your Docker Hub username and set `DOCKER_PASSWORD` equal to your Docker Hub password.
-5. In the `.github\workflows\docker-push.yml` file set `DOCKER_HUB_REPO` under `env` to the name of your repo on Docker Hub.
+5. In the `.github\workflows\docker-push.yml` file set `images` under `with` to `username/reponame` using your Docker Hub user name and repository name.
