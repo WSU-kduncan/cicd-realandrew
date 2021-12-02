@@ -2,7 +2,7 @@
 
 This is my repo of my Project 6 for CEG-3120. The project focuses on CI & CD (namely Docker and GitHub actions).
 
-## Part 1
+## Part 1 - Dockerize it
 
 To setup and run the project follow these steps:
 
@@ -15,10 +15,16 @@ To setup and run the project follow these steps:
   3. Run the image with `docker run -dp 80:80 --name project6 ceg3120_project6`
   4. With the project running you can go to [http://localhost:80](http://localhost:80) or [http://127.0.0.1:80](http://127.0.0.1:80) in your browser to view the website.
 
-## Part 2
+## Part 2 - GitHub Actions and DockerHub
 
 1. Create a Docker Hub account (if you don't already have one) at [https://hub.docker.com](https://hub.docker.com).
 2. Create a new repository by clicking the big blue "Create Repository" in the top right of the screen. Give it an appropriate name, set it to public, and click the blue "create" button.
 3. Login to Docker Hub in your CLI by typing `docker login` and entering your credentials (or `docker login --username <username>` if you need to login to a different account).
 4. On your repository, set 2 Github secrets, set `DOCKER_USERNAME` equal to your Docker Hub username and set `DOCKER_PASSWORD` equal to your Docker Hub password.
 5. In the `.github\workflows\docker-push.yml` file set `images` under `with` to `username/reponame` using your Docker Hub user name and repository name.
+
+## Part 3 - Deployment
+
+1. Pull the docker image with `docker pull repo:version` which for my repo is `sudo docker pull mitchell345/ceg3120-project6:main`.
+2. Run the image with `docker run -dp 80:80 --name nameitwhatever username/reponame:version` which for my repo is `sudo docker run -dp 80:80 --name project6 mitchell345/ceg3120-project6:main`
+3. You're done! If did everything you should be able to access the website at the public IP of your system. Though your browser might warn you about it being HTTP instead of HTTPS as my browser did.
